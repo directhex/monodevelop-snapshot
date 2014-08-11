@@ -4,7 +4,13 @@ override_dh_auto_configure:
 
 override_dh_auto_clean:
 	rm -f monodevelop_version
+	rm -rf debian/mytmp/
 	dh_auto_clean
+
+override_dh_auto_build:
+	mkdir -p debian/mytmp/
+	XDG_CONFIG_HOME=debian/mytmp/ mozroots --import --sync
+	XDG_CONFIG_HOME=debian/mytmp/ dh_auto_build
 
 %:
 	dh $@
