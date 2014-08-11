@@ -46,10 +46,4 @@ rm -f debian/rules.in
 DEBEMAIL="Xamarin Public Jenkins <jo.shields@xamarin.com>" \
 	dch --create --distribution unstable --package monodevelop-snapshot-${TIMESTAMP} --newversion ${TIMESTAMP}-1 \
 	--force-distribution --empty "Git snapshot (commit ID ${GITSTAMP})"
-#rm -fr ${PACKAGING_ROOT}/temp
-#mkdir -p ${PACKAGING_ROOT}/temp
-#tar xf ${MONO_ROOT}/mono*tar* -C ${PACKAGING_ROOT}/temp
-#mv ${PACKAGING_ROOT}/temp/mono* ${PACKAGING_ROOT}/temp/mono-snapshot-${TIMESTAMP}
-#mv debian ${PACKAGING_ROOT}/temp/mono-snapshot-${TIMESTAMP}
-#cd ${MONO_ROOT}
 mv ../monodevelop*tar.bz2 ../monodevelop-snapshot-${TIMESTAMP}_${TIMESTAMP}.orig.tar.bz2
