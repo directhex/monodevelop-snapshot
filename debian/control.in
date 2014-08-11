@@ -1,0 +1,63 @@
+Source: monodevelop-snapshot-%SNAPVER%
+Section: cli-mono
+Priority: optional
+Maintainer: Jo Shields <directhex@apebox.org>
+Build-Depends: debhelper (>= 7),
+        dpkg-dev (>= 1.13.19),
+	cli-common-dev,
+	mono-devel,
+	libgtk2.0-cil-dev,
+	libglib2.0-cil-dev,
+	libglade2.0-cil-dev,
+	libgnome2.0-cil-dev,
+	libgconf2.0-cil-dev
+Standards-Version: 3.8.4
+Homepage: http://www.mono-project.com/
+Vcs-Git: git://github.com/directhex/monodevelop-snapshot.git
+Vcs-Browser: https://github.com/directhex/monodevelop-snapshot
+
+Package: monodevelop-snapshot-latest
+Architecture: all
+Depends: monodevelop-snapshot-%SNAPVER%,
+         ${misc:Depends}
+Description: MonoDevelop IDE snapshot - latest version metapackage
+ MonoDevelop is a GNOME IDE primarily designed for C# and other CLI (.NET)
+ languages. It is the unbranded version of Xamarin Studio.
+ .
+ It supports the following languages: C, C++, C# (1.0, 2.0 and 3.0), Vala, Boo,
+ Java, Nemerle, ILasm, ASP.NET and VB.NET.
+ .
+ Features: Debugger Integration (Mono Debugger and GNU Debugger),
+ Class Browser, Assembly Browser, Built-in Help, Monodoc Integration,
+ Code Completion (also known as IntelliSense), Code Folding, Color Schemes,
+ Code Refactoring, On-the-fly error underlining, XML Editing, Embedded HTML
+ viewer, Gettext support, GTK# Designer, MSBuild project support and
+ Makefile Generation.
+ .
+ This metapackage will force installation of the latest snapshot package
+ available.
+
+Package: monodevelop-snapshot-%SNAPVER%
+Architecture: all
+Depends: ${shlibs:Depends},
+	 ${cli:Depends},
+         ${misc:Depends},
+         cli-common (>= 0.4.0),
+         mono-snapshot-common (>= 00000001)
+Description: Monodevelop runtime snapshot - IDE (git commit %GITVER%)
+ MonoDevelop is a GNOME IDE primarily designed for C# and other CLI (.NET)
+ languages. It is the unbranded version of Xamarin Studio.
+ .
+ It supports the following languages: C, C++, C# (1.0, 2.0 and 3.0), Vala, Boo,
+ Java, Nemerle, ILasm, ASP.NET and VB.NET.
+ .
+ Features: Debugger Integration (Mono Debugger and GNU Debugger),
+ Class Browser, Assembly Browser, Built-in Help, Monodoc Integration,
+ Code Completion (also known as IntelliSense), Code Folding, Color Schemes,
+ Code Refactoring, On-the-fly error underlining, XML Editing, Embedded HTML
+ viewer, Gettext support, GTK# Designer, MSBuild project support and
+ Makefile Generation.
+ .
+ This package installs a snapshot from Xamarin's Jenkins Continuous 
+ Integration server. Use the mono-snapshot command to set up your 
+ environment to actually use it.
