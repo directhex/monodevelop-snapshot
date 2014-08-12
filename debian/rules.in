@@ -27,6 +27,7 @@ override_dh_clideps:
 			--exclude-moduleref=libigemacintegration.dylib \
 			--exclude-moduleref=/usr/lib/libobjc.dylib \
 			--exclude-moduleref=glibsharpglue-2 \
+			--exclude-moduleref=libgtkspell \
 			--exclude-moduleref=gtksharpglue-2 \
 			--exclude-moduleref=libsvn_client-1.so.0 \
 			--exclude-moduleref=libapr-0.so.0 \
