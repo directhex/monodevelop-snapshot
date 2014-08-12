@@ -1,1 +1,3 @@
 /opt/monodevelop-%SNAPVER%/
+debian/%SNAPVER%		/usr/share/mono-snapshot/packages.d/monodevelop/
+
