@@ -42,3 +42,5 @@ clean:
 
 %:
 	dh $@ --with cli
+
+.PHONY: clean
