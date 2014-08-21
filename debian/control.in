@@ -11,8 +11,7 @@ Build-Depends: debhelper (>= 7),
 	libglade2.0-cil-dev,
 	libgnome2.0-cil-dev,
 	libgconf2.0-cil-dev,
-	monodoc-base,
-	git
+	monodoc-base
 Standards-Version: 3.8.4
 Homepage: http://www.mono-project.com/
 Vcs-Git: git://github.com/directhex/monodevelop-snapshot.git
