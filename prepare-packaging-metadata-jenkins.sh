@@ -26,7 +26,7 @@ PACKAGING_ROOT="$( cd "$( dirname "$0" )" && pwd )"
 MONO_ROOT=${PACKAGING_ROOT}/../monodevelop-git-latest/
 BUILD_ARCH=$(dpkg-architecture -qDEB_BUILD_ARCH)
 TIMESTAMP=`echo $BUILD_ID | sed 's/[_-]//g'`
-GITSTAMP=`tail -c9 ${MONO_ROOT}/buildinfo`
+GITSTAMP=`grep Git ${MONO_ROOT}/buildinfo | tail -c9`
 
 echo "Building debian/ folder"
 rm -rf ${MONO_ROOT}/debian/
