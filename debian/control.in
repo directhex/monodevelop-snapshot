@@ -48,7 +48,7 @@ Depends: ${shlibs:Depends},
          ${misc:Depends},
          cli-common (>= 0.4.0),
          mono-snapshot-common (>= 00000001)
-Description: Monodevelop runtime snapshot - IDE (git commit %GITVER%)
+Description: Monodevelop IDE snapshot (git commit %GITVER%)
  MonoDevelop is a GNOME IDE primarily designed for C# and other CLI (.NET)
  languages. It is the unbranded version of Xamarin Studio.
  .
