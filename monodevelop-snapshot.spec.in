@@ -50,7 +50,7 @@ for C-Sharp and other .NET languages. It allows to quickly
 create desktop and ASP.NET Web applications. Support
 for Visual Studio file formats eases porting to Linux.
 
-%define __requires_exclude mono(System.Web.DataVisualization)
+%define __requires_exclude_from /opt/monodevelop-${version}/lib/monodevelop/AddIns/AspNet/System.Web.Helpers.dll
 
 %prep
 %autosetup -n monodevelop-git-latest
