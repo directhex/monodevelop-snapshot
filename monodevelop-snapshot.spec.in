@@ -54,10 +54,10 @@ for Visual Studio file formats eases porting to Linux.
 %autosetup -n monodevelop-git-latest
 
 %build
-mkdir -p %{builddir}/XDG
+mkdir -p $RPM_BUILD_DIR}/XDG
 ./configure --prefix=/opt/monodevelop-%{version}
-XDG_CACHE_HOME=%{builddir}/XDG XDG_CONFIG_HOME=%{builddir}/XDG XDG_DATA_HOME=%{builddir}/XDG mozroots --import --sync
-XDG_CACHE_HOME=%{builddir}/XDG XDG_CONFIG_HOME=%{builddir}/XDG XDG_DATA_HOME=%{builddir}/XDG make %{?_smp_mflags}
+XDG_CACHE_HOME=$RPM_BUILD_DIR}/XDG XDG_CONFIG_HOME=$RPM_BUILD_DIR}/XDG XDG_DATA_HOME=$RPM_BUILD_DIR}/XDG mozroots --import --sync
+XDG_CACHE_HOME=$RPM_BUILD_DIR}/XDG XDG_CONFIG_HOME=$RPM_BUILD_DIR}/XDG XDG_DATA_HOME=$RPM_BUILD_DIR}/XDG make %{?_smp_mflags}
 
 %install
 %make_install
