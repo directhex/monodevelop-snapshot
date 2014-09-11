@@ -71,6 +71,7 @@ rm -fr %buildroot
 
 %files
 /opt/monodevelop-%{version}/
+/usr/share/mono-snapshot/packages.d/monodevelop/%SNAPVER%
 
 %package -n monodevelop-snapshot-latest
 Summary:	MonoDevelop IDE snapshot - latest version metapackage
