@@ -23,7 +23,7 @@
 
 
 PACKAGING_ROOT="$( cd "$( dirname "$0" )" && pwd )"
-MONO_ROOT=${PACKAGING_ROOT}/../../
+MONO_ROOT=${PACKAGING_ROOT}/../monodevelop-git-latest/
 TIMESTAMP=`echo $BUILD_ID | sed 's/[_-]//g'`
 GITSTAMP=`grep Git ${MONO_ROOT}/buildinfo | tail -c9`
 
