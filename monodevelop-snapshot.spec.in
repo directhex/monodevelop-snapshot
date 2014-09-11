@@ -69,7 +69,7 @@ rm -fr %buildroot
 %files
 /opt/monodevelop-%{version}/
 
-%package -n monodevelop-develop-latest
+%package -n monodevelop-snapshot-latest
 Summary:	MonoDevelop IDE snapshot - latest version metapackage
 BuildArch:	noarch
 Requires:	monodevelop-snapshot-%{version}
