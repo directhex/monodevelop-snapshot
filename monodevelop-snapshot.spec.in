@@ -1,0 +1,87 @@
+%define version %SNAPVER%
+Summary:	MonoDevelop IDE snapshot (git commit %GITVER%)
+Name:		monodevelop-snapshot-%{version}
+Version:	%{version}
+Release:	0
+License:	MIT, Apache 2.0, Ms-PL
+Group:		Development/Languages/Mono
+Source:		monodevelop-snapshot-%SNAPVER%.tar.bz2
+Source1:	%{version}
+URL:		http://www.monodevelop.com
+BuildRequires:  mono-data
+BuildRequires:  mono-data-postgresql
+BuildRequires:  pkgconfig(glade-sharp-2.0)
+BuildRequires:  pkgconfig(glib-sharp-2.0)
+BuildRequires:  pkgconfig(gnome-sharp-2.0)
+BuildRequires:  pkgconfig(gtk-sharp-2.0)
+BuildRequires:  pkgconfig(libgnomeui-2.0)
+BuildRequires:  pkgconfig(gconf-sharp-2.0)
+BuildRequires:  pkgconfig(gnome-vfs-sharp-2.0)
+BuildRequires:  autoconf
+BuildRequires:  automake
+BuildRequires:  dos2unix
+BuildRequires:  fdupes
+BuildRequires:  git
+BuildRequires:  hicolor-icon-theme
+BuildRequires:  intltool
+BuildRequires:  libtool
+BuildRequires:  shared-mime-info
+%if 0%{?fedora} || 0%{?rhel} || 0%{?centos}
+%else
+BuildRequires:  update-desktop-files
+%endif
+BuildRequires:  pkgconfig(mono)
+# mono-find-requires searches for libmono-2.0.so.1:
+BuildRequires:  pkgconfig(mono-2)
+BuildRequires:  pkgconfig(mono-addins)
+BuildRequires:  pkgconfig(mono-nunit)
+BuildRequires:  pkgconfig(monodoc)
+BuildRequires:  pkgconfig(wcf)
+# Mono.Cecil.dll requires rsync after it's build
+BuildRequires:  rsync
+BuildArch:	noarch
+Requires:	mono-snapshot-common
+Prefix:		/opt/monodevelop-%{version}
+%define debug_package %{nil}
+%description
+MonoDevelop is a full-featured integrated development
+environment (IDE) for Mono and Gtk-Sharp primarily designed
+for C-Sharp and other .NET languages. It allows to quickly
+create desktop and ASP.NET Web applications. Support
+for Visual Studio file formats eases porting to Linux.
+
+%prep
+%autosetup -n monodevelop-git-latest
+
+%build
+./configure --prefix=/opt/monodevelop-%{version}
+make %{?_smp_mflags}
+
+%install
+%make_install
+mkdir -p %{buildroot}/usr/share/mono-snapshot/packages.d/monodevelop
+cp %SOURCE1 %{buildroot}/usr/share/mono-snapshot/packages.d/monodevelop/
+find %{buildroot} -name *.la -delete
+
+%clean
+rm -fr %buildroot
+
+%files
+/opt/monodevelop-%{version}/
+
+%package -n mono-develop-latest
+Summary:	MonoDevelop IDE snapshot - latest version metapackage
+BuildArch:	noarch
+Requires:	monodevelop-snapshot-%{version}
+
+%description -n monodevelop-snapshot-latest
+MonoDevelop is a full-featured integrated development
+environment (IDE) for Mono and Gtk-Sharp primarily designed
+for C-Sharp and other .NET languages. It allows to quickly
+create desktop and ASP.NET Web applications. Support
+for Visual Studio file formats eases porting to Linux.
+.
+This metapackage will force installation of the latest snapshot package
+available.
+
+%files -n mono-snapshot-latest
