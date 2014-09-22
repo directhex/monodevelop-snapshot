@@ -34,7 +34,7 @@ BuildRequires:  pkgconfig(mono)
 # mono-find-requires searches for libmono-2.0.so.1:
 BuildRequires:  pkgconfig(mono-2)
 BuildRequires:  pkgconfig(mono-addins)
-BuildRequires:  pkgconfig(mono-nunit)
+BuildRequires:  pkgconfig(nunit)
 BuildRequires:  pkgconfig(monodoc)
 BuildRequires:  pkgconfig(wcf)
 # Mono.Cecil.dll requires rsync after it's build
