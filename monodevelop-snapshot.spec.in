@@ -35,7 +35,7 @@ BuildRequires:  pkgconfig(mono)
 BuildRequires:  pkgconfig(mono-2)
 BuildRequires:  pkgconfig(mono-addins)
 BuildRequires:  pkgconfig(nunit)
-BuildRequires:  pkgconfig(nuget)
+BuildRequires:  pkgconfig(nuget-core)
 BuildRequires:  pkgconfig(monodoc)
 BuildRequires:  pkgconfig(wcf)
 # Mono.Cecil.dll requires rsync after it's build
