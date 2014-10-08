@@ -5,6 +5,7 @@ override_dh_auto_test:
 	# do nothing here
 
 override_dh_auto_configure:
+	mkdir -p .git
 	dh_auto_configure -- --prefix=/opt/monodevelop-%SNAPVER% --sysconfdir=/opt/monodevelop-%SNAPVER%/etc
 
 override_dh_auto_clean:
@@ -38,6 +39,7 @@ override_dh_clideps:
 			--exclude-moduleref=libgtk-quartz-2.0
 
 clean:
+	rm -rf .git
 	dh $@
 
 %:
