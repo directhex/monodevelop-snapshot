@@ -25,7 +25,7 @@
 PACKAGING_ROOT="$( cd "$( dirname "$0" )" && pwd )"
 MONO_ROOT=${PACKAGING_ROOT}/../monodevelop-git-latest/
 TIMESTAMP=`echo $BUILD_ID | sed 's/[_-]//g'`
-GITSTAMP=`grep Git ${MONO_ROOT}/buildinfo | cut -f3 -d' ' | tail -c9`
+GITSTAMP=`grep Git ${MONO_ROOT}/buildinfo | cut -f3 -d' ' | head -c9`
 
 echo "Building spec file"
 rm -f ${MONO_ROOT}/../${TIMESTAMP}
