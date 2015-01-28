@@ -40,6 +40,7 @@ BuildRequires:  pkgconfig(monodoc) >= 3.8
 BuildRequires:  pkgconfig(wcf)
 # Mono.Cecil.dll requires rsync after it's build
 BuildRequires:  rsync
+BuildRequires:  nuget
 BuildArch:	noarch
 Requires:	mono-snapshot-common
 Prefix:		/opt/monodevelop-%{version}
@@ -66,6 +67,9 @@ for Visual Studio file formats eases porting to Linux.
 %build
 mkdir -p .git
 mkdir -p $RPM_BUILD_DIR}/XDG
+sed 's#$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/AspNet/MonoDevelop.AspNet.csproj
+sed 's#$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/NUnit/MonoDevelop.NUnit.csproj
+sed 's#$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/NUnit/NUnitRunner/NUnitRunner.csproj
 ./configure --prefix=/opt/monodevelop-%{version}
 XDG_CACHE_HOME=$RPM_BUILD_DIR}/XDG XDG_CONFIG_HOME=$RPM_BUILD_DIR}/XDG XDG_DATA_HOME=$RPM_BUILD_DIR}/XDG mozroots --import --sync
 XDG_CACHE_HOME=$RPM_BUILD_DIR}/XDG XDG_CONFIG_HOME=$RPM_BUILD_DIR}/XDG XDG_DATA_HOME=$RPM_BUILD_DIR}/XDG make %{?_smp_mflags}
