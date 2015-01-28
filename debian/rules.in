@@ -6,9 +6,9 @@ override_dh_auto_test:
 
 override_dh_auto_configure:
 	mkdir -p ../.git
-	sed -i 's#\$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/AspNet/MonoDevelop.AspNet.csproj
-	sed -i 's#\$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/NUnit/MonoDevelop.NUnit.csproj
-	sed -i 's#\$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/NUnit/NUnitRunner/NUnitRunner.csproj
+	sed -i 's#$$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/AspNet/MonoDevelop.AspNet.csproj
+	sed -i 's#$$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/NUnit/MonoDevelop.NUnit.csproj
+	sed -i 's#$$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/NUnit/NUnitRunner/NUnitRunner.csproj
 	dh_auto_configure -- --prefix=/opt/monodevelop-%SNAPVER% --sysconfdir=/opt/monodevelop-%SNAPVER%/etc
 
 override_dh_auto_clean:
