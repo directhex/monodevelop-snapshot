@@ -65,7 +65,7 @@ for Visual Studio file formats eases porting to Linux.
 %autosetup -n monodevelop-git-latest
 
 %build
-mkdir -p .git
+mkdir -p ../.git
 mkdir -p $RPM_BUILD_DIR}/XDG
 sed -i 's#$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/AspNet/MonoDevelop.AspNet.csproj
 sed -i 's#$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/NUnit/MonoDevelop.NUnit.csproj
