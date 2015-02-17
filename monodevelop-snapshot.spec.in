@@ -78,6 +78,7 @@ XDG_CACHE_HOME=$RPM_BUILD_DIR}/XDG XDG_CONFIG_HOME=$RPM_BUILD_DIR}/XDG XDG_DATA_
 %make_install
 mkdir -p %{buildroot}/usr/share/mono-snapshot/packages.d/monodevelop
 rm -f %{buildroot}/opt/monodevelop-%{version}/lib/monodevelop/bin/MonoDevelop.exe.config
+cp $(pkg-config --variable=Libraries nuget-core) %{buildroot}/opt/monodevelop-%{version}/lib/monodevelop/AddIns/MonoDevelop.PackageManagement/
 cp %SOURCE1 %{buildroot}/usr/share/mono-snapshot/packages.d/monodevelop/
 find %{buildroot} -name *.la -delete
 
