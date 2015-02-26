@@ -23,7 +23,7 @@
 
 
 PACKAGING_ROOT="$( cd "$( dirname "$0" )" && pwd )"
-MONO_ROOT=${PACKAGING_ROOT}/../monodevelop-git-latest/
+MONO_ROOT=${PACKAGING_ROOT}/../monodevelop-roslyn-git-latest/
 BUILD_ARCH=$(dpkg-architecture -qDEB_BUILD_ARCH)
 #Broken by Jenkins 1.597
 #TIMESTAMP=`echo $BUILD_ID | sed 's/[_-]//g'`
@@ -39,13 +39,13 @@ sed -i "s/%GITVER%/$GITSTAMP/g" debian/control
 rm -f debian/control.in
 sed "s/%SNAPVER%/$TIMESTAMP/g" debian/environment.in > debian/${TIMESTAMP}
 rm -f debian/environment.in
-sed "s/%SNAPVER%/$TIMESTAMP/g" debian/install.in > debian/monodevelop-snapshot-${TIMESTAMP}.install
+sed "s/%SNAPVER%/$TIMESTAMP/g" debian/install.in > debian/monodevelop-roslyn-snapshot-${TIMESTAMP}.install
 rm -f debian/install.in
 sed "s/%SNAPVER%/$TIMESTAMP/g" debian/rules.in > debian/rules
 chmod a+x debian/rules
 echo "3.0 (quilt)" > debian/source/format
 rm -f debian/rules.in
 DEBEMAIL="Xamarin Public Jenkins <jo.shields@xamarin.com>" \
-	dch --create --distribution unstable --package monodevelop-snapshot-${TIMESTAMP} --newversion ${TIMESTAMP}-1 \
+	dch --create --distribution unstable --package monodevelop-roslyn-snapshot-${TIMESTAMP} --newversion ${TIMESTAMP}-1 \
 	--force-distribution --empty "Git snapshot (commit ID ${GITSTAMP})"
-mv ../monodevelop*tar.bz2 ../monodevelop-snapshot-${TIMESTAMP}_${TIMESTAMP}.orig.tar.bz2
+mv ../monodevelop*tar.bz2 ../monodevelop-roslyn-snapshot-${TIMESTAMP}_${TIMESTAMP}.orig.tar.bz2

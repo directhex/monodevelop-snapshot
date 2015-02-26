@@ -1,4 +1,4 @@
-Source: monodevelop-snapshot-%SNAPVER%
+Source: monodevelop-roslyn-snapshot-%SNAPVER%
 Section: cli-mono
 Priority: optional
 Maintainer: Jo Shields <directhex@apebox.org>
@@ -24,11 +24,11 @@ Homepage: http://www.mono-project.com/
 Vcs-Git: git://github.com/directhex/monodevelop-snapshot.git
 Vcs-Browser: https://github.com/directhex/monodevelop-snapshot
 
-Package: monodevelop-snapshot-latest
+Package: monodevelop-roslyn-snapshot-latest
 Architecture: all
-Depends: monodevelop-snapshot-%SNAPVER%,
+Depends: monodevelop-roslyn-snapshot-%SNAPVER%,
          ${misc:Depends}
-Description: MonoDevelop IDE snapshot - latest version metapackage
+Description: MonoDevelop IDE snapshot - roslyn branch latest version metapackage
  MonoDevelop is a GNOME IDE primarily designed for C# and other CLI (.NET)
  languages. It is the unbranded version of Xamarin Studio.
  .
@@ -45,14 +45,14 @@ Description: MonoDevelop IDE snapshot - latest version metapackage
  This metapackage will force installation of the latest snapshot package
  available.
 
-Package: monodevelop-snapshot-%SNAPVER%
+Package: monodevelop-roslyn-snapshot-%SNAPVER%
 Architecture: all
 Depends: ${shlibs:Depends},
 	 ${cli:Depends},
          ${misc:Depends},
          cli-common (>= 0.4.0),
          mono-snapshot-common (>= 00000001)
-Description: Monodevelop IDE snapshot (git commit %GITVER%)
+Description: Monodevelop IDE snapshot (roslyn branch git commit %GITVER%)
  MonoDevelop is a GNOME IDE primarily designed for C# and other CLI (.NET)
  languages. It is the unbranded version of Xamarin Studio.
  .

@@ -23,7 +23,7 @@
 
 
 PACKAGING_ROOT="$( cd "$( dirname "$0" )" && pwd )"
-MONO_ROOT=${PACKAGING_ROOT}/../monodevelop-git-latest/
+MONO_ROOT=${PACKAGING_ROOT}/../monodevelop-roslyn-git-latest/
 #Broken by Jenkins 1.597
 #TIMESTAMP=`echo $BUILD_ID | sed 's/[_-]//g'`
 TIMESTAMP=`date -u +%Y%m%d%H%M%S`
@@ -32,8 +32,8 @@ GITSTAMP=`grep Git ${MONO_ROOT}/buildinfo | cut -f3 -d' ' | head -c9`
 echo "Building spec file"
 rm -f ${MONO_ROOT}/../${TIMESTAMP}
 cd ${MONO_ROOT}
-sed "s/%SNAPVER%/$TIMESTAMP/g" ${PACKAGING_ROOT}/monodevelop-snapshot.spec.in > ${MONO_ROOT}/../monodevelop-snapshot-${TIMESTAMP}.spec
-sed -i "s/%GITVER%/$GITSTAMP/g" ${MONO_ROOT}/../monodevelop-snapshot-${TIMESTAMP}.spec
+sed "s/%SNAPVER%/$TIMESTAMP/g" ${PACKAGING_ROOT}/monodevelop-snapshot.spec.in > ${MONO_ROOT}/../monodevelop-roslyn-snapshot-${TIMESTAMP}.spec
+sed -i "s/%GITVER%/$GITSTAMP/g" ${MONO_ROOT}/../monodevelop-roslyn-snapshot-${TIMESTAMP}.spec
 sed "s/%SNAPVER%/$TIMESTAMP/g" ${PACKAGING_ROOT}/debian/environment.in > ${MONO_ROOT}/../${TIMESTAMP}
 sed -i "s/%GITVER%/$GITSTAMP/g" ${MONO_ROOT}/../${TIMESTAMP}
-mv ../monodevelop*tar.bz2 ../monodevelop-snapshot-${TIMESTAMP}.tar.bz2
+mv ../monodevelop*tar.bz2 ../monodevelop-roslyn-snapshot-${TIMESTAMP}.tar.bz2
