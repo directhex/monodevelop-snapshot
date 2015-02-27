@@ -9,6 +9,7 @@ override_dh_auto_configure:
 	sed -i 's#$$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/AspNet/MonoDevelop.AspNet.csproj
 	sed -i 's#$$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/NUnit/MonoDevelop.NUnit.csproj
 	sed -i 's#$$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/NUnit/NUnitRunner/NUnitRunner.csproj
+	nuget restore Main.sln
 	dh_auto_configure -- --prefix=/opt/monodevelop-roslyn-%SNAPVER% --sysconfdir=/opt/monodevelop-roslyn-%SNAPVER%/etc
 
 override_dh_auto_clean:
