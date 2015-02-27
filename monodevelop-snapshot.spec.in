@@ -71,7 +71,7 @@ sed -i 's#$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/
 sed -i 's#$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/NUnit/MonoDevelop.NUnit.csproj
 sed -i 's#$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/NUnit/NUnitRunner/NUnitRunner.csproj
 ./configure --prefix=/opt/monodevelop-roslyn-%{version}
-nuget restore Main.sln
+XDG_CACHE_HOME=${RPM_BUILD_DIR}/XDG XDG_CONFIG_HOME=${RPM_BUILD_DIR}/XDG XDG_DATA_HOME=${RPM_BUILD_DIR}/XDG nuget restore Main.sln
 XDG_CACHE_HOME=${RPM_BUILD_DIR}/XDG XDG_CONFIG_HOME=${RPM_BUILD_DIR}/XDG XDG_DATA_HOME=${RPM_BUILD_DIR}/XDG mozroots --import --sync
 XDG_CACHE_HOME=${RPM_BUILD_DIR}/XDG XDG_CONFIG_HOME=${RPM_BUILD_DIR}/XDG XDG_DATA_HOME=${RPM_BUILD_DIR}/XDG make %{?_smp_mflags}
 
