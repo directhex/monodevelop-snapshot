@@ -9,7 +9,6 @@ Source:		monodevelop-snapshot-%SNAPVER%.tar.bz2
 Source1:	%{version}
 URL:		http://www.monodevelop.com
 BuildRequires:  mono-data
-BuildRequires:  mono-data-postgresql
 BuildRequires:  pkgconfig(glade-sharp-2.0)
 BuildRequires:  pkgconfig(glib-sharp-2.0)
 BuildRequires:  pkgconfig(gnome-sharp-2.0)
