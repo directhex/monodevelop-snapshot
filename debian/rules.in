@@ -40,6 +40,7 @@ override_dh_clideps:
 			--exclude-moduleref=fusion \
 			--exclude-moduleref=/System/Library/Frameworks/ApplicationServices.framework/Frameworks/CoreGraphics.framework/CoreGraphics \
 			--exclude-moduleref=/System/Library/Frameworks/QuartzCore.framework/QuartzCore \
+			--exclude-moduleref=/System/Library/Frameworks/ApplicationServices.framework/Versions/Current/ApplicationServices \
 			--exclude-moduleref=libgtk-quartz-2.0.dylib \
 			--exclude-moduleref=libgtk-quartz-2.0
 
