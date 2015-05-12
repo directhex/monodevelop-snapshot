@@ -1,7 +1,7 @@
-diff --git a/main/external/xwt/Xwt.Gtk/Xwt.Gtk.dll.config b/main/external/xwt/Xwt.Gtk/Xwt.Gtk.dll.config
+diff --git a/external/xwt/Xwt.Gtk/Xwt.Gtk.dll.config b/external/xwt/Xwt.Gtk/Xwt.Gtk.dll.config
 index e890061..f1630bb 100644
---- a/main/external/xwt/Xwt.Gtk/Xwt.Gtk.dll.config
-+++ b/main/external/xwt/Xwt.Gtk/Xwt.Gtk.dll.config
+--- a/external/xwt/Xwt.Gtk/Xwt.Gtk.dll.config
++++ b/external/xwt/Xwt.Gtk/Xwt.Gtk.dll.config
 @@ -8,6 +8,7 @@
  	<dllmap os="!windows,osx" dll="libpango-1.0-0.dll" target="libpango-1.0.so.0"/>
  	<dllmap os="!windows,osx" dll="libpangocairo-1.0-0.dll" target="libpangocairo-1.0.so.0"/>
@@ -18,10 +18,10 @@ index e890061..f1630bb 100644
 \ No newline at end of file
 +	<dllmap os="osx" dll="fontconfig" target="libfontconfig.1.dylib"/>
 +</configuration>
-diff --git a/main/external/xwt/Xwt.Gtk/Xwt.GtkBackend/FontBackendHandler.cs b/main/external/xwt/Xwt.Gtk/Xwt.GtkBackend/FontBackendHandler.cs
+diff --git a/external/xwt/Xwt.Gtk/Xwt.GtkBackend/FontBackendHandler.cs b/external/xwt/Xwt.Gtk/Xwt.GtkBackend/FontBackendHandler.cs
 index 2977dfa..18c0a3d 100644
---- a/main/external/xwt/Xwt.Gtk/Xwt.GtkBackend/FontBackendHandler.cs
-+++ b/main/external/xwt/Xwt.Gtk/Xwt.GtkBackend/FontBackendHandler.cs
+--- a/external/xwt/Xwt.Gtk/Xwt.GtkBackend/FontBackendHandler.cs
++++ b/external/xwt/Xwt.Gtk/Xwt.GtkBackend/FontBackendHandler.cs
 @@ -71,7 +71,7 @@ public override object Create (string fontName, double size, FontStyle style, Fo
  		[System.Runtime.InteropServices.DllImport ("fontconfig")]
  		static extern bool FcConfigAppFontAddFile (System.IntPtr config, string fontPath);
