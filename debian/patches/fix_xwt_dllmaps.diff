@@ -1,0 +1,33 @@
+diff --git a/main/external/xwt/Xwt.Gtk/Xwt.Gtk.dll.config b/main/external/xwt/Xwt.Gtk/Xwt.Gtk.dll.config
+index e890061..f1630bb 100644
+--- a/main/external/xwt/Xwt.Gtk/Xwt.Gtk.dll.config
++++ b/main/external/xwt/Xwt.Gtk/Xwt.Gtk.dll.config
+@@ -8,6 +8,7 @@
+ 	<dllmap os="!windows,osx" dll="libpango-1.0-0.dll" target="libpango-1.0.so.0"/>
+ 	<dllmap os="!windows,osx" dll="libpangocairo-1.0-0.dll" target="libpangocairo-1.0.so.0"/>
+ 	<dllmap os="!windows,osx" dll="libwebkitgtk-1.0-0.dll" target="libwebkitgtk-1.0.so.0"/>
++	<dllmap os="!windows,osx" dll="fontconfig" target="libfontconfig.so.1"/>
+ 
+ 	<dllmap os="osx" dll="libglib-2.0-0.dll" target="libglib-2.0.0.dylib"/>
+ 	<dllmap os="osx" dll="libgobject-2.0-0.dll" target="libgobject-2.0.0.dylib"/>
+@@ -17,4 +18,5 @@
+ 	<dllmap os="osx" dll="libpango-1.0-0.dll" target="libpango-1.0.0.dylib"/>
+ 	<dllmap os="osx" dll="libpangocairo-1.0-0.dll" target="libpangocairo-1.0.0.dylib"/>
+ 	<dllmap os="osx" dll="libwebkitgtk-1.0-0.dll" target="libwebkitgtk-1.0.0.dylib"/>
+-</configuration>
+\ No newline at end of file
++	<dllmap os="osx" dll="fontconfig" target="libfontconfig.1.dylib"/>
++</configuration>
+diff --git a/main/external/xwt/Xwt.Gtk/Xwt.GtkBackend/FontBackendHandler.cs b/main/external/xwt/Xwt.Gtk/Xwt.GtkBackend/FontBackendHandler.cs
+index 2977dfa..18c0a3d 100644
+--- a/main/external/xwt/Xwt.Gtk/Xwt.GtkBackend/FontBackendHandler.cs
++++ b/main/external/xwt/Xwt.Gtk/Xwt.GtkBackend/FontBackendHandler.cs
+@@ -71,7 +71,7 @@ public override object Create (string fontName, double size, FontStyle style, Fo
+ 		[System.Runtime.InteropServices.DllImport ("fontconfig")]
+ 		static extern bool FcConfigAppFontAddFile (System.IntPtr config, string fontPath);
+ 
+-		[System.Runtime.InteropServices.DllImport ("pangocairo-1.0")]
++		[System.Runtime.InteropServices.DllImport (Xwt.GtkBackend.GtkInterop.LIBPANGOCAIRO)]
+ 		static extern void pango_cairo_font_map_set_default (System.IntPtr fontmap);
+ 
+ 		public override bool RegisterFontFromFile (string fontPath)
