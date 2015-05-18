@@ -18,6 +18,8 @@ BuildRequires:  pkgconfig(gconf-sharp-2.0)
 BuildRequires:  pkgconfig(gnome-vfs-sharp-2.0)
 BuildRequires:  autoconf
 BuildRequires:  automake
+BuildRequires:  cmake
+BuildRequires:  libssh2-devel
 BuildRequires:  dos2unix
 BuildRequires:  fdupes
 BuildRequires:  git
