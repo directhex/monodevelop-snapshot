@@ -17,7 +17,7 @@ override_dh_auto_clean:
 	dh_auto_clean
 
 override_dh_auto_build:
-	XDG_CACHE_HOME=$(DEBIAN_DIR) XDG_CONFIG_HOME=$(DEBIAN_DIR) XDG_DATA_HOME=$(DEBIAN_DIR) mozroots --import --sync
+	cd ./main/external/libgit2sharp/Lib/CustomBuildTasks && xbuild CustomBuildTasks.csproj && mv bin/Debug/* .
 	XDG_CACHE_HOME=$(DEBIAN_DIR) XDG_CONFIG_HOME=$(DEBIAN_DIR) XDG_DATA_HOME=$(DEBIAN_DIR) dh_auto_build
 
 override_dh_auto_install:
