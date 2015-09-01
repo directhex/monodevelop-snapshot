@@ -48,7 +48,7 @@ Description: MonoDevelop IDE snapshot - latest version metapackage
  available.
 
 Package: monodevelop-snapshot-%SNAPVER%
-Architecture: all
+Architecture: any
 Depends: ${shlibs:Depends},
 	 ${cli:Depends},
          ${misc:Depends},
