@@ -71,6 +71,7 @@ mkdir -p ${RPM_BUILD_DIR}/XDG
 sed -i 's#$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/AspNet/MonoDevelop.AspNet.csproj
 sed -i 's#$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/NUnit/MonoDevelop.NUnit.csproj
 sed -i 's#$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/NUnit/NUnitRunner/NUnitRunner.csproj
+sed -i 's#$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' tests/UserInterfaceTests/UserInterfaceTests.csproj
 ./configure --prefix=/opt/monodevelop-%{version}
 pushd ./external/libgit2sharp/Lib/CustomBuildTasks && XDG_CACHE_HOME=${RPM_BUILD_DIR}/XDG XDG_CONFIG_HOME=${RPM_BUILD_DIR}/XDG XDG_DATA_HOME=${RPM_BUILD_DIR} xbuild CustomBuildTasks.csproj && mv bin/Debug/* . && popd
 XDG_CACHE_HOME=${RPM_BUILD_DIR}/XDG XDG_CONFIG_HOME=${RPM_BUILD_DIR}/XDG XDG_DATA_HOME=${RPM_BUILD_DIR}/XDG make %{?_smp_mflags}
