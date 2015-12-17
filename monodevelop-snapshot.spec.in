@@ -3,6 +3,7 @@ Summary:	MonoDevelop IDE snapshot (git commit %GITVER%)
 Name:		monodevelop-snapshot-%{version}
 Version:	%{version}
 Release:	0
+Epoch:		1
 License:	MIT, Apache 2.0, Ms-PL
 Group:		Development/Languages/Mono
 Source:		monodevelop-snapshot-%SNAPVER%.tar.bz2
