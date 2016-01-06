@@ -43,6 +43,7 @@ BuildRequires:  pkgconfig(wcf)
 # Mono.Cecil.dll requires rsync after it's build
 BuildRequires:  rsync
 BuildRequires:  nuget
+BuildRequires:  referenceassemblies-pcl
 BuildArch:	noarch
 Requires:	mono-snapshot-common
 Prefix:		/opt/monodevelop-%{version}
@@ -74,7 +75,7 @@ sed -i 's#$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/
 sed -i 's#$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' src/addins/NUnit/NUnitRunner/NUnitRunner.csproj
 sed -i 's#$(SolutionDir)\\external\\nuget-binary\\#/usr/lib/nuget/#' tests/UserInterfaceTests/UserInterfaceTests.csproj
 ./configure --prefix=/opt/monodevelop-%{version}
-pushd ./external/libgit2sharp/Lib/CustomBuildTasks && XDG_CACHE_HOME=${RPM_BUILD_DIR}/XDG XDG_CONFIG_HOME=${RPM_BUILD_DIR}/XDG XDG_DATA_HOME=${RPM_BUILD_DIR} xbuild CustomBuildTasks.csproj && mv bin/Debug/* . && popd
+pushd ./external/libgit2sharp/Lib/CustomBuildTasks && XDG_CACHE_HOME=${RPM_BUILD_DIR}/XDG XDG_CONFIG_HOME=${RPM_BUILD_DIR}/XDG XDG_DATA_HOME=${RPM_BUILD_DIR}/XDG xbuild CustomBuildTasks.csproj && mv bin/Debug/* . && popd && nuget restore Main.sln
 XDG_CACHE_HOME=${RPM_BUILD_DIR}/XDG XDG_CONFIG_HOME=${RPM_BUILD_DIR}/XDG XDG_DATA_HOME=${RPM_BUILD_DIR}/XDG make %{?_smp_mflags}
 
 %install
